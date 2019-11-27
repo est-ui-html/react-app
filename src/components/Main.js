@@ -26,6 +26,7 @@ class Main extends Component {
 
 
     render() {
+        console.log(this.props);
         console.log("render() method executed ... ");
         const records = this.state.userData.map((data) => {
             return (
@@ -38,9 +39,6 @@ class Main extends Component {
 
         return (
             <>
-                <h3>{this.props.name}</h3>
-                <h3>{this.props.ranjeetha}</h3>
-                <label>{this.state.name}</label>
                 {records}
             </>
         )
@@ -50,7 +48,9 @@ class Main extends Component {
         console.log("componentDidMount() method got executed ... ");
         axios.get("https://jsonplaceholder.typicode.com/users")
             .then((res) => {
-                this.setState({ userData: res.data });
+                this.setState({ userData: res.data.splice(0,2) }, () => {
+                    this.props.bringData(this.state.userData)
+                });
             });
     }
 }

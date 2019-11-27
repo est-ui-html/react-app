@@ -6,7 +6,7 @@ class Footer extends React.Component {
         return (
             <>
                 <h1>Footer</h1>
-                <Button myClick={this.props.printMethod} myCustomColor="green" />
+                {/* <Button myClick={this.props.printMethod} myCustomColor="green" /> */}
             </>
         )
     }

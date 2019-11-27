@@ -1,9 +1,11 @@
 import React from 'react';
 
-const button = (props) => {
-    return (
-        <button onClick={() => props.myClick("custom text")} style={{ backgroundColor: props.myCustomColor, color: "white"}} >Click me</button> 
-    )
+class Button extends React.Component {
+    render(){
+        return (
+            <button onClick={this.props.toggleHandler} style={{ backgroundColor: this.props.myCustomColor, color: "white", padding: '3px', margin: '5px'}} >Click me</button> 
+        )
+    }
 }
 
-export default button;
+export default Button;
